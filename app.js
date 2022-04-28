@@ -7,12 +7,7 @@ require("./src/db/mongoose")
 
 app.use(registerRouter)
 
-app.get("/",(req,res)=>{
-    res.send("Hlo Harsh");
-})
-app.get("/about",(req,res)=>{
-    res.send("Hlo Harsh bansal");
-})
+
 
 if(process.env.NODE_ENV=="production"){
     app.use(express.static("frontend/build"));
