@@ -132,11 +132,12 @@ const Keep = (props) => {
                     </form>
                 </div>
                 <br/>
-                <div style={{backgroundColor:"black",height:"2px",textAlign:"center"}}><span className="rotate"style={{backgroundColor:"yellow",top:"-15px",position:"relative"}}>See Your Notes</span></div>
-                  
+                <div style={{backgroundColor:"black",height:"2px",textAlign:"center"}}><span className="rotate" style={{backgroundColor:"yellow",top:"-15px",position:"relative"}}>See Your Notes</span></div>
+                <div className="container-fluid row">
                   {comp.map((val,index)=>{
                        return <See dat={val} key={val.id} id={index} onSelect={deleteItems}/>
                   })}
+                  </div>
             </div>
         </>
     )
