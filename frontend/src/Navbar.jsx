@@ -33,7 +33,7 @@ const Navbar = (props) => {
     
     <div>
       <div className="container-fluid bg-dark ml-auto">
-          <nav className="navbar navbar-expand-lg  pos-f-t navbar navbar-expand">
+          <nav className="navbar navbar-expand-sm  ">
           <ul className="navbar-nav  ">
                   <li className="nav-item active "><h2 style={{color:"red"}}>FO<span style={{color:"white",fontSize:"40px"}}>RM</span></h2></li>
                   

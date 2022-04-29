@@ -122,11 +122,13 @@ const Todo = (props) => {
       
     
 
-      <div className="container text-center w-50 my-5 mb-3">
+      <div className="container text-center w-100  my-5 ">
         <div >
-        <hr/>
-          <h1 >See your List</h1>
+        <fieldset className="bg-warning"> <legend style={{transform:"rotate(-5deg)"}}><h1>See your List</h1></legend></fieldset>
+         
         </div>
+        </div>
+        <div className="container text-center w-50  mb-3">
         <div className="my-4 ">
 
           {arr.map((ele, id) => {

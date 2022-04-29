@@ -85,28 +85,33 @@ const Keep = (props) => {
         
         change((prevalue)=>{
             return (
-               [...prevalue,Note]
+               [Note,...prevalue]
             )
         }
         )
         
         
-       ll.push(Note)
+        
+       ll.unshift(Note)
         
         console.log(ll)
+        
         save(ll);
         set("");
         setting("");
     }
 
+    let a=0;
     const deleteItems=(id)=>{
         change((oldItems) => {
             return oldItems.filter((arrElem,index)=>{
+                a=index;
                 return  index!=id;
             })
         })
+        ll.splice(a,1);
         
-        save(comp);
+        save(ll);
     }
 
     
