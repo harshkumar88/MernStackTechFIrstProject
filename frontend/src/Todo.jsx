@@ -4,6 +4,8 @@ import ".//todo.css"
 import Navbar from './Navbar';
 const Todo = (props) => {
 
+  const [sh,put]=useState(false);
+
   let a = 0;
   const location = useLocation();
   const [input, setinput] = useState('');
@@ -37,7 +39,7 @@ const Todo = (props) => {
    
     setTimeout(()=>{
       
-      alert("welcome "+pickn)
+      //alert("welcome "+pickn)
     },1000)
     
     show();
@@ -58,6 +60,7 @@ const Todo = (props) => {
 
   }
   const AddItem = (e) => {
+    put(!sh)
     e.preventDefault();
     if(input==""){
       alert("enter your task");
@@ -81,7 +84,10 @@ const Todo = (props) => {
       set(da);
 
       change(false)
+
+    
     }
+    
 
 
     start(da);
@@ -97,6 +103,7 @@ const Todo = (props) => {
     start(data)
     set(data)
   }
+  
   const update = (ind) => {
 
     const data = arr.find((ele) => {
@@ -108,43 +115,52 @@ const Todo = (props) => {
     change(true);
   }
   return (
-    <div>
+    <div className="bg-dark" style={{height:"100vh"}}>
        <Navbar email={pick} name={pickn}/>
-      <div className="container text-center">
+      
+      <div className="container-fluid text-center w-100 mb-5 border-bottom ">
+        
+        <span style={{fontSize:"40px",textShadow:"2px 4px white"}}>Todo List</span>
+         
+        
+        </div>
+        
+       
+        <div className="container text-center bg-light  mb-3 scroll" style={{ width:"450px",maxWidth:"450px"}}>
+        <div style={{fontVariant:"small-caps"}}  > 
+       <img src="https://th.bing.com/th/id/OIP.up57Zn_n-WjmQ8qI6wEy3wHaHa?pid=ImgDet&rs=1" className="img-fluid float-left" style={{width:"40px"}}/>
+       <span style={{fontSize:"30px"}} className="border-bottom" >What's Up Today</span>
+       </div>
+
+      
+        {sh==false?
         <div>
-          <h1>To do List</h1>
+          <button className="btn btn-sm btn-outline-success " onClick={()=>{put(!sh)}}>➕</button>
+          <br/>
+          </div>
+      
+        :""}
+        {sh==true?
+        <div>
           <form method="POST">
-            <input type="search" value={input} onChange={(event) => { setinput(event.target.value) }} />{!toggle ? <button className="btn btn-outline-info " onClick={AddItem}>+</button> : <button className="btn btn-sm bg-gradient" onClick={AddItem}><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: "20px" }} /></button>}
+            <input type="search" value={input} onChange={(event) => { setinput(event.target.value) }} />{!toggle ? <button className="btn btn-outline-info " onClick={AddItem}>➕</button> : <button className="btn btn-sm bg-gradient" onClick={AddItem}><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: "20px" }} /></button>}
           </form>
+        </div>
+        :""}
+        
+      
+
+   
+        <div className="my-4  zoom" >
+
+          {arr.map((ele, id) => {
+            return <div className=" border-bottom row text-dark mb-2" key={ele.id}> <div className="col-2 text-danger"> <input className="btn btn-sm bg-gradient" type="checkbox" onClick={() => del(ele.id)} /></div><div className="col-6" style={{ textOverflow: 'ellipsis', wordWrap: "break-word" }}><span style={{ fontSize: "1.5rem", fontVariant: "all-small-caps" }}>{ele.name}</span></div> <div className="col-4" ><button className="btn btn-sm bg-gradient" onClick={() => { update(ele.id) }} ><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: '20px' }} onClick={()=>{put(!sh)}}/></button></div></div>
+          })}
         </div>
         
       </div>
       
-    
-
-      <div className="container-fluid text-center w-100  my-5 ">
-        <div >
-        <fieldset className="bg-warning"> <legend style={{transform:"rotate(-5deg)"}}><h1>See your List</h1></legend></fieldset>
-         
-        </div>
-        </div>
-        {window.innerWidth>600?
-        <div className="container-fluid text-center w-50 mb-3">
-        <div className="my-4  zoom" >
-
-          {arr.map((ele, id) => {
-            return <div className="bg-dark border-bottom border-danger row text-white mb-2" key={ele.id}> <div className="col-2 text-danger"><span style={{ fontSize: "2rem" }}>*</span></div><div className="col-6" style={{ textOverflow: 'ellipsis', wordWrap: "break-word" }}><span style={{ fontSize: "1.5rem", fontVariant: "all-small-caps" }}>{ele.name}</span></div> <div className="col-4" ><button className="btn btn-sm bg-gradient" onClick={() => { update(ele.id) }}><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: '20px' }} /></button> <button className="btn btn-sm bg-gradient" onClick={() => del(ele.id)}><img src="https://static.vecteezy.com/system/resources/previews/000/630/728/original/vector-trash-can-icon-symbol-illustration.jpg" style={{ width: "20px" }} /></button></div></div>
-          })}
-        </div>
-      </div>
-        :<div className="container-fluid text-center w-100 mb-3">
-        <div className="my-4  zoom" >
-
-          {arr.map((ele, id) => {
-            return <div className="bg-dark border-bottom border-danger row text-white mb-2" key={ele.id}> <div className="col-2 text-danger"><span style={{ fontSize: "2rem" }}>*</span></div><div className="col-6" style={{ textOverflow: 'ellipsis', wordWrap: "break-word" }}><span style={{ fontSize: "1.5rem", fontVariant: "all-small-caps" }}>{ele.name}</span></div> <div className="col-4" ><button className="btn btn-sm bg-gradient" onClick={() => { update(ele.id) }}><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: '20px' }} /></button> <button className="btn btn-sm bg-gradient" onClick={() => del(ele.id)}><img src="https://static.vecteezy.com/system/resources/previews/000/630/728/original/vector-trash-can-icon-symbol-illustration.jpg" style={{ width: "20px" }} /></button></div></div>
-          })}
-        </div>
-      </div>}
+        
 
     </div>
   )
