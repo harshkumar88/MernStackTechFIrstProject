@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 const Todo = (props) => {
 
   const [sh,put]=useState(false);
-
+   const [w,inc]=useState("450px")
   let a = 0;
   const location = useLocation();
   const [input, setinput] = useState('');
@@ -36,6 +36,10 @@ const Todo = (props) => {
     set(respond.f)
   }
   useEffect(() => {
+    if( window.innerWidth<900)
+   
+        inc("320px")
+    
    
     setTimeout(()=>{
       
@@ -115,7 +119,7 @@ const Todo = (props) => {
     change(true);
   }
   return (
-    <div className="bg-dark" style={{height:"100vh"}}>
+    <div className="bg-dark" style={{height:"100vh",flexGrow:"1"}} >
        <Navbar email={pick} name={pickn}/>
       
       <div className="container-fluid text-center w-100 mb-5 border-bottom ">
@@ -126,7 +130,7 @@ const Todo = (props) => {
         </div>
         
        
-        <div className="container text-center bg-light  mb-3 scroll" style={{ width:"450px",maxWidth:"450px"}}>
+        <div className="container text-center bg-light  mb-3 scroll" style={{ width:w,maxWidth:w}}>
         <div style={{fontVariant:"small-caps"}}  > 
        <img src="https://th.bing.com/th/id/OIP.up57Zn_n-WjmQ8qI6wEy3wHaHa?pid=ImgDet&rs=1" className="img-fluid float-left" style={{width:"40px"}}/>
        <span style={{fontSize:"30px"}} className="border-bottom" >What's Up Today</span>

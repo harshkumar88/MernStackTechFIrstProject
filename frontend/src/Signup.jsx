@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {useHistory} from "react-router-dom"
 
 const Signup = () => {
+    const [w,inc]=useState("500px");
     const history=useHistory();
     const [data,set]=useState({
         name:"",
@@ -9,6 +10,14 @@ const Signup = () => {
         password:"",
         phone:""
     })
+    useEffect(() => {
+        if( window.innerWidth<900)
+       
+            inc("300px")
+        
+       
+        
+      }, [])
     const change=(event)=>{
          const n=event.target.name;
          const val=event.target.value;
@@ -58,11 +67,11 @@ const Signup = () => {
     }
     return (
         <div>
-            <div className="container-fluid text-center">
+            <div className="container-fluid text-center" style={{flexGrow:"1"}}>
                 <h1>Register</h1>
             </div>
 
-            <div className="container  bg-light my-5 w-50 mx-auto">
+            <div className="container  bg-light my-5 mx-auto" style={{width:w}}>
                 <form method="POST" className="form py-4">
                     <label className="form-label m-1">Name</label><input type="text" className="form-control " name="name" value={data.name} placeholder="Enter your name" required onChange={change}/>               
                     <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
