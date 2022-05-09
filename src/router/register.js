@@ -21,9 +21,13 @@ router.post("/register",async(req,res)=>{
                console.log(finduser)
                return res.status(422).json({error:"Rejected"});
            }
-           else if(req.body.phone.length>10 ){
+           else if(req.body.phone.length>10  ){
             
             return res.status(422).json({error:"Reject"});
+        }
+        else if( req.body.password.length<8){
+            
+            return res.status(422).json({error:"Rej"});
         }
 
            const register=new Register({
@@ -90,10 +94,13 @@ router.post("/find",async(req,res)=>{
                 return res.status(201)
         }
        
-           
+           const d=new Date().getDate();
+           const y=new Date().getMonth();
             const book=new List({
                 Email:req.body.Email,
-                data:req.body.data
+                data:req.body.data,
+                day:d,
+                month:y
             })
             
                 await book.save();
@@ -157,6 +164,14 @@ router.post("/listshow",async(req,res)=>{
         })
            
         if(userfind){
+            if(userfind.day!=new Date().getDate() || userfind.month!=new Date().getMonth()){
+                console.log("ji")
+               const res= await List.deleteMany({
+                    day:{$ne:new Date().getDate()}
+                })
+                console.log("pp",res)
+            }
+           
         console.log("jlp",userfind)
         return res.status(200).json({f:userfind.data})
         }

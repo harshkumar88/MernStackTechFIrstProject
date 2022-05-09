@@ -29,10 +29,21 @@ const RegisterSchema=new mongoose.Schema({
 const ListSchema=new mongoose.Schema({
     
     Email:{
-        
+        type:String,
+        required:true,
+        trim:true,
+        lowercase:true
     },
     data:{
         type:Array,
+        required:true
+    },
+    day:{
+        type:String,
+        required:true
+    },
+    month:{
+        type:String,
         required:true
     }
 })
