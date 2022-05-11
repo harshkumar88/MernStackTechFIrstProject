@@ -33,16 +33,16 @@ const Navbar = (props) => {
     
     <div>
       <div className="container-fluid bg-dark ml-auto">
-          <nav className="navbar navbar-expand-sm  ">
+          <nav className="navbar navbar-expand">
           <ul className="navbar-nav  ">
                   <li className="nav-item active "><h2 style={{color:"red"}}>FO<span style={{color:"white",fontSize:"40px"}}>RM</span></h2></li>
                   
               </ul>
               {url!="/"? <ul className="navbar-nav ml-auto " >
-                  <li className="nav-item active "><NavLink exact activeClassName="change" to="/" className="nav-link text-white" >Home</NavLink></li>
-                  <li className="nav-item active "><NavLink exact activeClassName="change" to="/Register" className="nav-link text-white" >Register</NavLink></li>
-                  <li className="nav-item active"><NavLink exact activeClassName="change" to="/Login" className="nav-link text-white">Login</NavLink></li>
-                  {email!=undefined?<li className="nav-item active"><NavLink exact activeClassName="change" to={{
+                  <li className="nav-item active " className="get"><NavLink exact activeClassName="change" to="/" className="nav-link text-white" >Home</NavLink></li>
+                  <li className="nav-item active " className="get"><NavLink exact activeClassName="change" to="/Register" className="nav-link text-white" >Register</NavLink></li>
+                  <li className="nav-item active" className="get"><NavLink exact activeClassName="change" to="/Login" className="nav-link text-white">Login</NavLink></li>
+                  {email!=undefined?<li className="nav-item active" className="get"><NavLink exact activeClassName="change" to={{
         pathname:path,
         state:{
           name,
