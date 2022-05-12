@@ -76,6 +76,7 @@ const Keep = (props) => {
     }
     
     const show=(event)=>{
+        pop(!loop)
        
         event.preventDefault()
         const Note={
@@ -113,6 +114,7 @@ const Keep = (props) => {
         
         save(ll);
     }
+    const [loop,pop]=useState(false);
 
     
     const [s,again]=useState(false);
@@ -121,19 +123,23 @@ const Keep = (props) => {
         <>
             <div >
             <Navbar email={pick} name={pickn}/>
-            <div className="bg-success text-center">
-                <h1>Harsh Keep App</h1>
+            {loop==false?
+            <div className=" text-center">
+                <h1 >ADD Your Notes</h1><Button className="btn btn-outline-dark" onClick={()=>{pop(!loop)}}>➕</Button>
                 </div>
-                <div className="card border-success   " style={{width:"300px",maxWidth:"500px",margin:"auto",marginTop:"20px", boxShadow:"10px 10px 20px  grey,-10px -10px 20px #fffffe"}}  onDoubleClick={()=>again(false)}>
+            :""}
+                {loop==true?
+                <div className="card border-success  mt-5  " style={{width:"300px",maxWidth:"500px",margin:"auto",marginTop:"20px", boxShadow:"10px 10px 20px  grey,-10px -10px 20px #fffffe"}}  onDoubleClick={()=>again(false)}>
                 <form method="POST" >
                     <input placeholder="TITLE" onChange={title} value={text} onClick={()=>again(true)} className="form-control"/><br />
                     { s && <input placeholder="Write a Note" onChange={note} value={data} className="form-control mb-2"/>}
                     <Button onClick={show} className="align-self-sm-end btn-outline-success " type="submit">➕</Button>
                     </form>
                 </div>
+               :"" }
                 <br/>
-                <div style={{backgroundColor:"black",height:"2px",textAlign:"center"}}><span className="rotate" style={{backgroundColor:"yellow",top:"-15px",position:"relative"}}>See Your Notes</span></div>
-                <div className="container-fluid row">
+                <div style={{backgroundColor:"black",height:"2px",textAlign:"center"}}><span className="rotate" style={{backgroundColor:"yellow"}}>See Your Notes</span></div>
+                <div className="container-fluid row scroll2 bg-white" >
                   {comp.map((val,index)=>{
                        return <See dat={val} key={val.id} id={index} onSelect={deleteItems}/>
                   })}

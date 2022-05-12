@@ -46,7 +46,7 @@ const Navbar = (props) => {
     
     <div>
       <div className="container-fluid remove bg-dark ml-auto">
-          <nav className="navbar navbar-expand">
+          <nav className="navbar navbar-expand" >
           <ul className="navbar-nav  ">
                   <li className="nav-item active "><h2 style={{color:"red"}}>FO<span style={{color:"white",fontSize:"40px"}}>RM</span></h2></li>
                   
@@ -65,27 +65,28 @@ const Navbar = (props) => {
              
           </nav>
       </div>
+      
       {simple==false && url!="/"?
        <div className=" show container-fluid bg-light text-right">
-      <button className="btn btn-danger " onClick={shoot}>✋</button>
+      <button className="btn  " onClick={shoot}><img src="https://th.bing.com/th/id/OIP.hzFvwjuNtldQFF9aLEtkjAHaGM?pid=ImgDet&rs=1" className="img-fluid" style={{width:"30px"}}/></button>
       </div>
       :""}
       {simple==true && url!="/"?
-      <div className="w-100 show s container-fluid bg-danger" style={{position:"sticky",top:"-10px"}}>
+      <div className="w-100 show s container-fluid" style={{position:"absolute",height:"100vh",backgroundColor:"rgba(0, 0,0,0.75)"}}>
      
       <div>
       <nav className="navbar navbar-expand-slg">
       
               {url!="/"? <ul className="navbar-nav ml-auto " >
-                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/" className="nav-link text-white" >Home</NavLink></li>
-                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Register" className="nav-link text-white" >Register</NavLink></li>
-                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Login" className="nav-link text-white">Login</NavLink></li>
+                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/" className="nav-link text-white"  onClick={()=>{get(false)}}>Home</NavLink></li>
+                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Register" className="nav-link text-white"  onClick={()=>{get(false)}}>Register</NavLink></li>
+                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Login" className="nav-link text-white"  onClick={()=>{get(false)}}>Login</NavLink></li>
                   {email!=undefined?<li className="nav-item active" ><NavLink exact activeClassName="change" to={{
         pathname:path,
         state:{
           name,
           email
-        }}} className="nav-link text-white">{url=="/Todo"?'KeepApp':'Todo'}</NavLink></li>:""}
+        }}} className="nav-link text-white"  onClick={()=>{get(false)}}>{url=="/Todo"?'KeepApp':'Todo'}</NavLink></li>:""}
               </ul>:""} 
              
           </nav>
