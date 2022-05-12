@@ -123,11 +123,11 @@ const Keep = (props) => {
         <>
             <div >
             <Navbar email={pick} name={pickn}/>
-            {loop==false?
+          
             <div className=" text-center">
-                <h1 >ADD Your Notes</h1><Button className="btn btn-outline-dark" onClick={()=>{pop(!loop)}}>➕</Button>
+                <h3 >ADD Your Notes</h3>  {loop==false?<Button className="btn btn-outline-dark" onClick={()=>{pop(!loop)}}>➕</Button>    :""}
                 </div>
-            :""}
+        
                 {loop==true?
                 <div className="card border-success  mt-5  " style={{width:"300px",maxWidth:"500px",margin:"auto",marginTop:"20px", boxShadow:"10px 10px 20px  grey,-10px -10px 20px #fffffe"}}  onDoubleClick={()=>again(false)}>
                 <form method="POST" >
