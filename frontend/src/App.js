@@ -8,6 +8,7 @@ import Homepage from './Homepage';
 import Todo from './Todo'
 import newhomepage from './newhomepage'
 import Keep from './KeepApp'
+import Forgot from "./forgot"
 import {NavLink, useLocation} from 'react-router-dom'
 function App() {
   const location=useLocation();
@@ -22,7 +23,7 @@ function App() {
          <Route exact path="/Login" component={Login}></Route>
         
          <Route exact path="/newhomepage" component={newhomepage}></Route>
-        
+         <Route  exact path="/forgot" component={Forgot}></Route>
          <Route exact path="/Todo" component={Todo}></Route>
          <Route exact path="/keepApp" component={Keep}></Route>
         </Switch>

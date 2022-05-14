@@ -1,5 +1,5 @@
 import React, { Component, useState,useEffect} from 'react'
-import {useHistory} from "react-router-dom"
+import {NavLink, useHistory} from "react-router-dom"
 import Todo from './Todo';
 import newhomepage from './newhomepage'
 
@@ -92,11 +92,13 @@ const Login = () => {
                     <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     <label className="form-label my-2">Password</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="Enter your name" required onChange={change}/>
-                    <small id="PasswordHelp" className="form-text text-muted">Password is remain always safe.</small>
+                    
+                    <span id="PasswordHelp" className=" text-muted mr-5" style={{fontSize:"12px"}}>Password is remain always safe.</span><span className="ml-5 " style={{fontSize:"13px"}}><NavLink exact to="/forgot" className=" text-muted">Forget your Password</NavLink></span><br/>
                     <label className="form-label my-2">Phone no.</label><input type="number" name="phone" value={data.phone} className="form-control "  placeholder="Enter your name" required onChange={change}/>
                     <div className="my-3 text-center"><button className="btn btn-danger form-control" onClick={send}>Login</button></div>
                 </form>
             </div>
+            
         </div>
     )
 }

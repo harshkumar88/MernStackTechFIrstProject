@@ -1,6 +1,7 @@
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
+const sendmail=require("../nodemailer.js")
 
 const router=new express.Router();
 
@@ -16,10 +17,27 @@ router.post("/register",async(req,res)=>{
            const finduser=userdata.find((user)=>{
                return user.email===req.body.email
            })
-            
+          
            if(finduser ){
-               console.log(finduser)
+            
+               if(finduser.password!=req.body.password){
+                 if( req.body.password.length<8){
+            
+                    return res.status(422).json({error:"Rej"});
+                }
+                  await Register.findOneAndUpdate({email:finduser.email},{
+                       $set:{
+                           password:req.body.password
+                       }
+                   })
+                   console.log(Register)
+                   return res.status(201).json({win:"update"});
+               }
+               else{
+              
                return res.status(422).json({error:"Rejected"});
+               }
+               
            }
            else if(req.body.phone.length>10  ){
             
@@ -36,7 +54,7 @@ router.post("/register",async(req,res)=>{
                password:req.body.password,
                phone:req.body.phone
            })
-
+          console.log(register)
            const registered=await register.save();
            return res.status(201).json({message:'Sucess'})
     }
@@ -209,4 +227,11 @@ router.post("/Notesshow",async(req,res)=>{
         console.log(e)
     }
 })
+
+
+//router.post("/Sendemail",async(req,res)=>{
+    //sendmail(req.body.email,req.body.otp)
+         
+  
+//})
 module.exports=router;
