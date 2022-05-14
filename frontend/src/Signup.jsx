@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom"
 import Footer from './Footer';
 
 const Signup = () => {
-    const [w,inc]=useState("450px");
+    const [w,inc]=useState("500px");
     const history=useHistory();
     const [data,set]=useState({
         name:"",

@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const Login = () => {
 
-    const [w,inc]=useState("450px");
+    const [w,inc]=useState("500px");
     const history=useHistory();
     let ss=""; let n="";
     const [data,set]=useState({
