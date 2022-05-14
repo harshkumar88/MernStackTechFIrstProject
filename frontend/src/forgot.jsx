@@ -2,9 +2,11 @@ import React, { Component, useState,useEffect} from 'react'
 import {NavLink, useHistory} from "react-router-dom"
 import emailjs from 'emailjs-com'
 let em=""
+let ot=0;
 const Forgot = () => {
  
     const[invert,pop]=useState(false);
+    const [otpenter,fast]=useState(true);
     const[invert2,pop2]=useState(false);
     const [w,inc]=useState("470px");
     const [boot,line]=useState(true)
@@ -35,12 +37,20 @@ const Forgot = () => {
          set({...data,[n]:val})
          
     }
+
+    function generateRandomNumber() {
+        var minm = 100000;
+        var maxm = 999999;
+        return Math.floor(Math
+        .random() * (maxm - minm + 1)) + minm;
+    }
+
     const send=async(e)=>{
           
            const {email}=data;
            em=email;
 
-           const otp=1;
+          ot=generateRandomNumber();
           if(email==""){
               return;
           }
@@ -56,11 +66,19 @@ const Forgot = () => {
                 'Content-Type':"application/json"
             },
             body:JSON.stringify({
-              email,otp
+              email,otp:ot
             })
 
             
         });
+
+        const response=await res.json();
+
+        if(response.error=="notexist"){
+            alert("User Not exist");
+            history.push("/Register")
+            return;
+        }
     
     }
     catch(e){
@@ -72,7 +90,7 @@ const Forgot = () => {
 
 
           
-          alert("msg sent successfully")
+          alert("OTP sent successfully")
           set({
             name:"",
             email:"",
@@ -88,17 +106,26 @@ const Forgot = () => {
     }
           
     }
+    
+  
+    
     const check=(e)=>{
         const {otp}=data;
         if(otp==""){
             return;
         }
         else{
+            if(otp==ot){
+                alert("Successfully done..");
+                pop2(true)
+                pop(false)
+            }
+            else{
+                fast(false)
+            }
         e.preventDefault();
 
-        alert("ITS OKK");
-        pop2(true)
-        pop(false)
+        
         }
 
     }
@@ -168,7 +195,7 @@ const Forgot = () => {
                 <form className="form py-4">
                    
                     {invert==true && invert2==false?
-                         <><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/></>
+                         <><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/>{otpenter==false?<p className="text-danger">OTP Not Match</p>:""}</>
                     :invert==false && invert2==false?<> <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small></>:<> <label className="form-label my-2">NewPassword</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="Enter your Password" required onChange={change}/>
                     <label className="form-label my-2">ConfirmPassword</label><input type="password"  name="cnfpassword" value={data.cnfpassword} className="form-control " placeholder="Enter your Password" required onChange={change}/>

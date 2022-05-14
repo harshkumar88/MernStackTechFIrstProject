@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from 'react'
 import {useHistory} from "react-router-dom"
+import Footer from './Footer';
 
 const Signup = () => {
-    const [w,inc]=useState("500px");
+    const [w,inc]=useState("450px");
     const history=useHistory();
     const [data,set]=useState({
         name:"",
@@ -75,7 +76,7 @@ const Signup = () => {
                 <h1>Register</h1>
             </div>
 
-            <div className="container  bg-light my-5 mx-auto" style={{width:w}}>
+            <div className="container  bg-light my-2 mx-auto" style={{width:w}}>
                 <form method="POST" className="form py-4">
                     <label className="form-label m-1">Name</label><input type="text" className="form-control " name="name" value={data.name} placeholder="Enter your name" required onChange={change}/>               
                     <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
@@ -86,6 +87,7 @@ const Signup = () => {
                     <div className="my-3 text-center"><button className="btn btn-danger form-control" onClick={send}>Register</button></div>
                 </form>
             </div>
+           
         </div>
     )
 }

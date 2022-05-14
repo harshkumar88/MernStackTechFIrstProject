@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Footer from './Footer'
 
 const Homepage = () => {
   return (
@@ -15,7 +16,7 @@ const Homepage = () => {
       </div>
     </div>
    
-      
+     
     </div>
   )
 }

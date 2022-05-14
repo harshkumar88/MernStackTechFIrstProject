@@ -13,7 +13,7 @@ var mailOptions= {
   from: 'harshkumartodolist1@gmail.com',
   to: reciever,
   subject: 'One time password',
-  text: otp
+  text: ""+otp
 };
  
 transporter.sendMail(mailOptions, function(error, info){

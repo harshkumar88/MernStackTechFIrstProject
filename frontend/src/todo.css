@@ -9,7 +9,12 @@ body{
 .show{
   display: none;
 }
-
+.add{
+  color:white
+}
+.add:hover{
+  color:red
+}
 
 .setw{
     color:"red";

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import Button from '@mui/material/Button';
+import Footer from './Footer';
 
 const Homepagenew = () => {
   const location=useLocation();
@@ -33,7 +34,7 @@ const Homepagenew = () => {
       </div>
     </div>
    
-      
+     
     </div>
   )
 }

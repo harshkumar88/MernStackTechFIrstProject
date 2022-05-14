@@ -39,7 +39,7 @@ router.post("/register",async(req,res)=>{
                }
                
            }
-           else if(req.body.phone.length>10  ){
+        else if(req.body.phone.length>10  ){
             
             return res.status(422).json({error:"Reject"});
         }
@@ -229,9 +229,22 @@ router.post("/Notesshow",async(req,res)=>{
 })
 
 
-//router.post("/Sendemail",async(req,res)=>{
-    //sendmail(req.body.email,req.body.otp)
+router.post("/Sendemail",async(req,res)=>{
+
+    const userdata=await Register.find({})
+           const finduser=userdata.find((user)=>{
+               return user.email===req.body.email
+           })
+          if(finduser){
+            sendmail(req.body.email,req.body.otp)
+          }
+          else{
+            return  res.status(200).json({error:"notexist"})
+          }
+    
+     
          
+    return  res.status(200).send("COol")
   
-//})
+})
 module.exports=router;

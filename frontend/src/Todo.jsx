@@ -122,7 +122,7 @@ const Todo = (props) => {
     <div className="bg-dark" style={{height:"100vh",flexGrow:"1"}} >
        <Navbar email={pick} name={pickn}/>
       
-      <div className="container-fluid text-center w-100 mb-5 border-bottom ">
+      <div className="container-fluid text-center w-100 mb-3 border-bottom ">
         
         <span style={{fontSize:"40px",textShadow:"2px 4px white"}}>Todo List</span>
          
@@ -130,7 +130,7 @@ const Todo = (props) => {
         </div>
         
        
-        <div className="container text-center bg-light  mb-3 scroll" style={{ width:w,maxWidth:w}}>
+        <div className="container text-center bg-light  mb-2 scroll" style={{ width:w,maxWidth:w}}>
         <div style={{fontVariant:"small-caps"}}  > 
        <img src="https://th.bing.com/th/id/OIP.up57Zn_n-WjmQ8qI6wEy3wHaHa?pid=ImgDet&rs=1" className="img-fluid float-left" style={{width:"40px"}}/>
        <span style={{fontSize:"30px"}} className="border-bottom" >What's Up Today</span>
@@ -155,7 +155,7 @@ const Todo = (props) => {
       
 
    
-        <div className="my-4  zoom" >
+        <div className="my-3  zoom" >
 
           {arr.map((ele, id) => {
             return <div className=" border-bottom row text-dark mb-2" key={ele.id}> <div className="col-2 text-danger"> <input className="btn btn-sm bg-gradient" type="checkbox" onClick={() => del(ele.id)} /></div><div className="col-6" style={{ textOverflow: 'ellipsis', wordWrap: "break-word" }}><span style={{ fontSize: "1.5rem", fontVariant: "all-small-caps" }}>{ele.name}</span></div> <div className="col-4" ><button className="btn btn-sm bg-gradient" onClick={() => { update(ele.id) }} ><img src="https://th.bing.com/th/id/OIP.ZqQ-PrOb2lHs4eQJNGYXLQHaHa?pid=ImgDet&rs=1" style={{ width: '20px' }} onClick={()=>{put(!sh)}}/></button></div></div>
