@@ -11,6 +11,8 @@ const Forgot = () => {
     const [w,inc]=useState("470px");
     const [boot,line]=useState(true)
     const history=useHistory();
+    const [min,Min]=useState(1)
+    const [sec,Sec]=useState(59)
     let ss=""; let n="";
     const [data,set]=useState({
         name:"",
@@ -44,12 +46,22 @@ const Forgot = () => {
         return Math.floor(Math
         .random() * (maxm - minm + 1)) + minm;
     }
-
+    
+    const call=()=>{
+        
+        ot=generateRandomNumber();
+       
+        return;
+    }
     const send=async(e)=>{
           
            const {email}=data;
            em=email;
-
+          
+           set({
+               email:em,
+            otp:""
+        })
           ot=generateRandomNumber();
           if(email==""){
               return;
@@ -91,13 +103,34 @@ const Forgot = () => {
 
           
           alert("OTP sent successfully")
-          set({
-            name:"",
-            email:"",
-            password:"",
-            phone:"",otp:"",cnfpassword:""
-        })
-
+       let i=1;
+       let sin=sec;
+       let m=min;
+      const s= setInterval(()=>{
+        console.log(sin)
+        
+        
+        if(sin==0 && m==0){
+            clearInterval(s);
+        }
+        else if(sin==0){
+            
+            Sec(59);
+            sin=59;
+            i=1;
+            Min(0);
+            m--;
+        }
+        else{
+            Sec(sin-1);
+            sin=sin-i;
+            
+        }
+       },1000)
+       setInterval(()=>{
+              call();
+              
+       },120000)
         pop(true);
         pop2(false)
           
@@ -116,9 +149,14 @@ const Forgot = () => {
         }
         else{
             if(otp==ot){
-                alert("Successfully done..");
-                pop2(true)
-                pop(false)
+                fast(true);
+                setTimeout(()=>{
+                    alert("Successfully done..");
+                    pop2(true)
+                    pop(false)
+                },300)
+                
+               
             }
             else{
                 fast(false)
@@ -166,10 +204,14 @@ const Forgot = () => {
               console.log("Invalid registration")
           }
           else if(response.win=='update'){
-            alert("password is changed,successfully")
+            line(true);
+            setTimeout(()=>{
+                alert("password is changed,successfully")
 
             
-        history.push("/Login")
+                history.push("/Login")
+            },300)
+           
           }
         }
         catch(e){
@@ -195,7 +237,7 @@ const Forgot = () => {
                 <form className="form py-4">
                    
                     {invert==true && invert2==false?
-                         <><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/>{otpenter==false?<p className="text-danger">OTP Not Match</p>:""}</>
+                         <><label className="text-danger"><span className="font-weight-bolder" style={{color:"black"}}>Note:</span> OTP expires after {min}:{sec}</label><br/><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/><p className="text-right" onClick={send} style={{cursor:"pointer"}}>Resend OTP</p>{otpenter==false?<p className="text-danger">INVALID OTP</p>:""}</>
                     :invert==false && invert2==false?<> <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small></>:<> <label className="form-label my-2">NewPassword</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="Enter your Password" required onChange={change}/>
                     <label className="form-label my-2">ConfirmPassword</label><input type="password"  name="cnfpassword" value={data.cnfpassword} className="form-control " placeholder="Enter your Password" required onChange={change}/>
