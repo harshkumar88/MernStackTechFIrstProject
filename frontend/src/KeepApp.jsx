@@ -121,7 +121,7 @@ const Keep = (props) => {
 
     return (
         <>
-            <div >
+            <div  style={{zIndex:3}}>
             <Navbar email={pick} name={pickn}/>
           
             <div className=" text-center">

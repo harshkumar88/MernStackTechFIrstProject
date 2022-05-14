@@ -130,7 +130,7 @@ const Todo = (props) => {
         </div>
         
        
-        <div className="container text-center bg-light  mb-2 scroll" style={{ width:w,maxWidth:w}}>
+        <div className="container text-center bg-light  mb-2 scroll" style={{ width:w,maxWidth:w,zIndex:3}}>
         <div style={{fontVariant:"small-caps"}}  > 
        <img src="https://th.bing.com/th/id/OIP.up57Zn_n-WjmQ8qI6wEy3wHaHa?pid=ImgDet&rs=1" className="img-fluid float-left" style={{width:"40px"}}/>
        <span style={{fontSize:"30px"}} className="border-bottom" >What's Up Today</span>
