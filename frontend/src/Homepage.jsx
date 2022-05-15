@@ -7,7 +7,7 @@ const Homepage = () => {
     <div>
 
     <div className="container-fluid bg-dark text-center" style={{opacity:'0.05'}}>
-        <h1 className="text-white p-1">Let's see Our Website</h1>
+        <h1 className="text-white p-1">Let's see My Website</h1>
     </div>
     <div className="container text-center my-5">
     <div className="py-5">

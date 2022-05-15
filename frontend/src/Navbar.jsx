@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 import {NavLink, useLocation} from 'react-router-dom'
 import ".//todo.css"
+import logo from './logo.jpg'
 
 const Navbar = (props) => {
    const [path,change]=useState();
@@ -48,7 +49,7 @@ const Navbar = (props) => {
       <div className="container-fluid remove bg-dark ml-auto">
           <nav className="navbar navbar-expand" >
           <ul className="navbar-nav  ">
-                  <li className="nav-item active "><h2 style={{color:"red"}}>FO<span style={{color:"white",fontSize:"40px"}}>RM</span></h2></li>
+                  <li className="nav-item active ml-0"><img src={logo} className="img-fluid " style={{width:"50px",borderRadius:"50%"}} /></li>
                   
               </ul>
               {url!="/"? <ul className="navbar-nav ml-auto " >
