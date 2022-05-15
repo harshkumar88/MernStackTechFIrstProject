@@ -11,6 +11,7 @@ import Keep from './KeepApp'
 import Forgot from "./forgot"
 import {NavLink, useLocation} from 'react-router-dom'
 import Footer from './Footer';
+import Error from "./Error"
 function App() {
   const location=useLocation();
   const url=location.pathname;
@@ -27,6 +28,7 @@ function App() {
          <Route  exact path="/forgot" component={Forgot}></Route>
          <Route exact path="/Todo" component={Todo}></Route>
          <Route exact path="/keepApp" component={Keep}></Route>
+         <Route  path="/*" component={Error}></Route>
         </Switch>
         
         <Footer/>
