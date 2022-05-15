@@ -15,6 +15,7 @@ import Error from "./Error"
 function App() {
   const location=useLocation();
   const url=location.pathname;
+  
   return (
    <>
    {url!="/Todo" && url!="/keepApp"?<Navbar/>:""}
