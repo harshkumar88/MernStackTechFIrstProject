@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com'
 let em=""
 let ot=0;
 const Forgot = () => {
- 
+    const[end,yup]=useState(false)
     const[invert,pop]=useState(false);
     const [otpenter,fast]=useState(true);
     const[invert2,pop2]=useState(false);
@@ -101,17 +101,20 @@ const Forgot = () => {
     
 
 
-          
+    yup(false)
+    Sec(59);
+    Min(1);
           alert("OTP sent successfully")
        let i=1;
-       let sin=sec;
-       let m=min;
+       let sin=59;
+       let m=1;
       const s= setInterval(()=>{
         console.log(sin)
         
         
         if(sin==0 && m==0){
             clearInterval(s);
+            yup(true)
         }
         else if(sin==0){
             
@@ -237,7 +240,7 @@ const Forgot = () => {
                 <form className="form py-4">
                    
                     {invert==true && invert2==false?
-                         <><label className="text-danger"><span className="font-weight-bolder" style={{color:"black"}}>Note:</span> OTP expires after {min}:{sec}</label><br/><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/><p className="text-right" onClick={send} style={{cursor:"pointer"}}>Resend OTP</p>{otpenter==false?<p className="text-danger">INVALID OTP</p>:""}</>
+                         <><label className="text-danger"><span className="font-weight-bolder" style={{color:"black"}}>Note:</span> OTP expires after <h4 style={{display:"inline-block"}}>{min}:{sec}</h4></label><br/><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/>{end==true?<p className="text-right " onClick={send} style={{cursor:"pointer"}}>Resend OTP</p>:<p className="text-right text-muted"  readonly="true">Resend OTP</p>}{otpenter==false?<p className="text-danger">INVALID OTP</p>:""}</>
                     :invert==false && invert2==false?<> <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small></>:<> <label className="form-label my-2">NewPassword</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="Enter your Password" required onChange={change}/>
                     <label className="form-label my-2">ConfirmPassword</label><input type="password"  name="cnfpassword" value={data.cnfpassword} className="form-control " placeholder="Enter your Password" required onChange={change}/>
