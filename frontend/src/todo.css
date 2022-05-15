@@ -99,7 +99,7 @@ body{
     font-size: 4px;
   }
   
-  @media only screen and (max-height: 600px) {
+  @media only screen and (max-height: 530px) {
     .removeit{
       display: none
     }

@@ -198,6 +198,10 @@ const Forgot = () => {
                 alert("invalid registration,user Already exist")
                 console.log("Invalid registration")
             }
+            else if(response.error=="Rejected1"){
+                alert("Try New Password")
+                console.log("Password not change")
+            }
            else if(response.error=="Reject"){
               alert("invalid registration,Phone no. not valid")
               console.log("Invalid registration")

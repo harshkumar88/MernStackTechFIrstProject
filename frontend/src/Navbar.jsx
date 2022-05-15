@@ -77,8 +77,13 @@ const Navbar = (props) => {
      
       <div>
       <nav className="navbar navbar-expand-slg">
+      <ul className="navbar-nav  ">
+                  <li className="nav-item active ml-0"><img src={logo} className="img-fluid " style={{width:"50px",borderRadius:"50%"}} /></li>
+                  
+              </ul>
       
               {url!="/"? <ul className="navbar-nav ml-auto " >
+              
                   <li className="nav-item active" ><NavLink exact activeClassName="change" to="/" className="nav-link  add"  onClick={()=>{get(false)}}>Home</NavLink></li>
                   {url=='/Todo'||url=='/keepApp'?"": <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Register" className="nav-link  add"  onClick={()=>{get(false)}}>Register</NavLink></li>}
                   {url=='/Todo'||url=='/keepApp'?"": <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Login" className="nav-link  add"  onClick={()=>{get(false)}}>Login</NavLink></li>}

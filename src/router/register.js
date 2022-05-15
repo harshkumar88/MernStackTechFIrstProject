@@ -33,6 +33,9 @@ router.post("/register",async(req,res)=>{
                    console.log(Register)
                    return res.status(201).json({win:"update"});
                }
+               else if(finduser.password==req.body.password){
+                return res.status(422).json({error:"Rejected1"});
+               }
                else{
               
                return res.status(422).json({error:"Rejected"});

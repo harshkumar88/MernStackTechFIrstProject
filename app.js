@@ -7,7 +7,9 @@ require("./src/db/mongoose")
 
 app.use(registerRouter)
 
-
+app.get("/*",(req,res)=>{
+    res.send("ji")
+})
 
 if(process.env.NODE_ENV=="production"){
     app.use(express.static("frontend/build"));
