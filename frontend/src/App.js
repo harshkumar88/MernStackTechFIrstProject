@@ -12,6 +12,7 @@ import Forgot from "./forgot"
 import {NavLink, useLocation} from 'react-router-dom'
 import Footer from './Footer';
 import Error from "./Error"
+import Music from './Music';
 function App() {
   const location=useLocation();
   const url=location.pathname;
@@ -21,6 +22,7 @@ function App() {
    {url!="/Todo" && url!="/keepApp"?<Navbar/>:""}
    
    <Switch>
+   
          <Route  exact path="/" component={Homepage}></Route>
          <Route  exact path="/Register" component={Signup}></Route>
          <Route exact path="/Login" component={Login}></Route>
