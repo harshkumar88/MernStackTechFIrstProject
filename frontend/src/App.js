@@ -13,24 +13,25 @@ import {NavLink, useLocation} from 'react-router-dom'
 import Footer from './Footer';
 import Error from "./Error"
 import Music from './Music';
+import Placement from './Placement'
 function App() {
   const location=useLocation();
   const url=location.pathname;
   
   return (
    <>
-   {url!="/Todo" && url!="/keepApp"?<Navbar/>:""}
+   {url!="/Todo" && url!="/keepApp" ?<Navbar/>:""}
    
    <Switch>
    
          <Route  exact path="/" component={Homepage}></Route>
          <Route  exact path="/Register" component={Signup}></Route>
          <Route exact path="/Login" component={Login}></Route>
-        
          <Route exact path="/newhomepage" component={newhomepage}></Route>
          <Route  exact path="/forgot" component={Forgot}></Route>
          <Route exact path="/Todo" component={Todo}></Route>
          <Route exact path="/keepApp" component={Keep}></Route>
+         <Route  exact path="/Placement" component={Placement}></Route>
          <Route  path="/*" component={Error}></Route>
         </Switch>
         

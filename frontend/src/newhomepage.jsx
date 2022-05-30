@@ -19,6 +19,8 @@ const Homepagenew = () => {
     <div className="container-fluid text-center my-5">
     <div className="py-5">
       <h1 style={{fontSize:"6vw"}}>Which You Like to choose <span className="text-danger">?</span></h1>
+      <Button  className="btn  btn-outline-danger btn-sm mr-2"><NavLink exact to="/Placement"  className="btn  btn-outline-danger btn-md">Placement Series</NavLink></Button>
+
       <Button className="btn  btn-outline-success btn-sm mr-2"><NavLink exact to={{
         pathname:"/Todo",
         state:{
