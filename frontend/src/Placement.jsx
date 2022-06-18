@@ -48,7 +48,7 @@ const Placement = () => {
 
             <div className="container-fluid text-center" ><h1>Placement Preparations</h1></div>
             <hr />
-            <div className="container-fluid" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+            <div className="container-fluid mb-5" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
                 {
                     data.map((ele, idx) => {
                         return (
@@ -56,7 +56,7 @@ const Placement = () => {
                                 show(ele.Title)
                             }}>
                                 <div >
-                                    <h4 className="card-title">{ele.Title}</h4>
+                                    <h4 className="card-title" style={{fontSize:"1.2rem"}}>{ele.Title}</h4>
                                     
                                    
                                 </div>

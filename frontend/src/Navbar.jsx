@@ -62,7 +62,7 @@ const Navbar = (props) => {
           name,
           email
         }}} className="nav-link  add">{url=="/Todo"?'KeepApp':'Todo'}</NavLink></li>:""}
-        {email!=undefined?<li className="nav-item active" ><NavLink exact activeClassName="change" to="/Placement" className="nav-link  add">Placement</NavLink></li>:""}{url=="/Placement"?<li><NavLink exact activeClassName="change" to="/newhomepage" className="nav-link  add">Choices</NavLink></li>:""}
+        {email!=undefined?<li className="nav-item active ml-0" ><NavLink exact activeClassName="change" to="/Placement" className="nav-link  add">Placement</NavLink></li>:""}{url=="/Placement"?<li><NavLink exact activeClassName="change" to="/newhomepage" className="nav-link  add">Choices</NavLink></li>:""}
               </ul>:""} 
              
           </nav>
@@ -86,6 +86,7 @@ const Navbar = (props) => {
               {url!="/"? <ul className="navbar-nav ml-auto " >
               
                   <li className="nav-item active" ><NavLink exact activeClassName="change" to="/" className="nav-link  add"  onClick={()=>{get(false)}}>Home</NavLink></li>
+                  <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Placement" className="nav-link  add">Placement</NavLink></li>
                   {url=='/Todo'||url=='/keepApp'|| url=="/Placement" ?"": <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Register" className="nav-link  add"  onClick={()=>{get(false)}}>Register</NavLink></li>}
                   {url=='/Todo'||url=='/keepApp'|| url=="/Placement" ?"": <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Login" className="nav-link  add"  onClick={()=>{get(false)}}>Login</NavLink></li>}
                   {email!=undefined?<li className="nav-item active" ><NavLink exact activeClassName="change" to={{
@@ -95,8 +96,7 @@ const Navbar = (props) => {
           email
         }}} className="nav-link add"  onClick={()=>{get(false)}}>{url=="/Todo"?'KeepApp':'Todo'}</NavLink></li>:""}
               </ul>:""} 
-            <li className="nav-item active" ><NavLink exact activeClassName="change" to="/Placement" className="nav-link  add">Placement</NavLink></li>
-          </nav>
+              </nav>
          
       </div>
       </div>
