@@ -40,7 +40,7 @@ const Signup = () => {
                   'Content-Type':"application/json"
               },
               body:JSON.stringify({
-                name,email,password,phone
+                name,email,password,phone,top:"a"
               })
           });
                     

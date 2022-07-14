@@ -192,7 +192,8 @@ const Forgot = () => {
                 },
                 body:JSON.stringify({
                  email:em,
-                 password
+                 password,
+                 top:"forgot"
                 })
             });
                       

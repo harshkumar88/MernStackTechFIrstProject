@@ -27,6 +27,9 @@ router.post("/register", async (req, res) => {
         })
 
         if (finduser) {
+            if(req.body.top!="forgot"){
+                return res.status(422).json({ error: "Rejected1" });
+            }
 
             if (finduser.password != req.body.password) {
                 if (req.body.password.length < 8) {
