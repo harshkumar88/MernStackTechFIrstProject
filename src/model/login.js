@@ -12,6 +12,8 @@ const RegisterSchema=new mongoose.Schema({
         trim:true,
         unique:true,
         lowercase:true
+        
+       
     },
     password:{
         type:String,

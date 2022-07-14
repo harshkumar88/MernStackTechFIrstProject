@@ -4,13 +4,13 @@ const sendmail=(reciever,otp)=>{
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'harshkumartodolist1@gmail.com',
-    pass: 'harshtodo88kumar@'
+    user: 'mernappproject@gmail.com',
+    pass: 'yseqyyouiqaxdkki'
   }
 });
  
 var mailOptions= {
-  from: 'harshkumartodolist1@gmail.com',
+  from: 'mernappproject@gmail.com',
   to: reciever,
   subject: 'One time password',
   text: ""+otp

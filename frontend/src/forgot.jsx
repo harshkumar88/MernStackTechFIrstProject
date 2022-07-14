@@ -91,6 +91,10 @@ const Forgot = () => {
             history.push("/Register")
             return;
         }
+        else  if(response.error=="passrej"){
+            alert("Password is not in true format ")
+            console.log("Invalid registration")
+        }
     
     }
     catch(e){
@@ -196,6 +200,10 @@ const Forgot = () => {
            
             if(response.error=="Rejected"){
                 alert("invalid registration,user Already exist")
+                console.log("Invalid registration")
+            }
+            else  if(response.error=="passrej"){
+                alert("Password is not in true format ")
                 console.log("Invalid registration")
             }
             else if(response.error=="Rejected1"){
