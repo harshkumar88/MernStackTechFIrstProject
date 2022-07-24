@@ -151,6 +151,7 @@ const Forgot = () => {
     
     const check=(e)=>{
         const {otp}=data;
+      
         if(otp==""){
             return;
         }
@@ -166,6 +167,7 @@ const Forgot = () => {
                
             }
             else{
+                data.otp="";
                 fast(false)
             }
         e.preventDefault();
@@ -254,7 +256,7 @@ const Forgot = () => {
                    
                     {invert==true && invert2==false?
                          <><label className="text-danger"><span className="font-weight-bolder" style={{color:"black"}}>Note:</span> OTP expires after <h4 style={{display:"inline-block"}}>{min}:{sec}</h4></label><br/><label className="form-label my-2">OTP</label><input type="text"  name="otp" value={data.otp} className="form-control " placeholder="Enter your OTP" required onChange={change}/>{end==true?<p className="text-right " onClick={send} style={{cursor:"pointer"}}>Resend OTP</p>:<p className="text-right text-muted"  readonly="true">Resend OTP</p>}{otpenter==false?<p className="text-danger">INVALID OTP</p>:""}</>
-                    :invert==false && invert2==false?<> <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your name" required onChange={change}/>
+                    :invert==false && invert2==false?<> <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your email" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small></>:<> <label className="form-label my-2">NewPassword</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="Enter your Password" required onChange={change}/>
                     <label className="form-label my-2">ConfirmPassword</label><input type="password"  name="cnfpassword" value={data.cnfpassword} className="form-control " placeholder="Enter your Password" required onChange={change}/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your password with anyone else.</small>{boot==false?<p className="text-danger">PASSWORD NOT MATCH</p>:""}</>}

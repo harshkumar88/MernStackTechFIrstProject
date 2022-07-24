@@ -8,7 +8,7 @@ const See =(props)=>{
     /*{props.dat.title && setTimeout(()=>{
         alert("Successfully added ")
     },200)}*/
-    return (<> {props.dat.title && <div className="btn-light m-5 " style={{width:"300px",height:"180px",display:"inline-block",overflowWrap:"break-word", boxShadow:"10px 10px 20px  grey,-10px -10px 20px #fffffe",overflow:"-moz-hidden-unscrollable"}}>
+    return (<> {props.dat.title && <div className="btn-light mt-5 mb-5 " style={{width:"300px",height:"180px",overflowWrap:"break-word", boxShadow:"10px 10px 20px  grey,-10px -10px 20px #fffffe",overflow:"-moz-hidden-unscrollable"}}>
      
         { props.dat.title &&<span className="font-weight-bold "> Title:</span>}{props.dat.title && <span className="align-self-sm-end" style={{marginLeft:"79%",width:"0px",height:'0px',cursor:"pointer"}} onClick={()=>{
             props.onSelect(props.id)
@@ -139,7 +139,7 @@ const Keep = (props) => {
                :"" }
                 <br/>
                 <div style={{backgroundColor:"black",height:"2px",textAlign:"center"}}><span className="rotate" style={{backgroundColor:"yellow"}}>See Your Notes</span></div>
-                <div className="container-fluid row scroll2 bg-white" >
+                <div className="container-fluid row scroll2" style={{display:"flex",justifyContent:"space-evenly",flexWrap:"wrap"}}>
                   {comp.map((val,index)=>{
                        return <See dat={val} key={val.id} id={index} onSelect={deleteItems}/>
                   })}

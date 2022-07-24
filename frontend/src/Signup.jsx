@@ -89,7 +89,7 @@ const Signup = () => {
                     <label className="form-label m-1">Name</label><input type="text" className="form-control " name="name" value={data.name} placeholder="Enter your name" required onChange={change}/>               
                     <label className="form-label my-2">Email</label><input type="email"  name="email" value={data.email} className="form-control " placeholder="Enter your email" required onChange={change} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                    <label className="form-label my-2">Password</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="{ minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1" required onChange={change} pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/" />
+                    <label className="form-label my-2">Password</label><input type="password"  name="password" value={data.password} className="form-control " placeholder="eg.Abcde@79" />
                     <small id="PasswordHelp" className="form-text text-muted">Password is remain always safe.</small>
                     <label className="form-label my-2">Phone no.</label><input type="number" name="phone" value={data.phone} className="form-control "  placeholder="Enter your phone no." required onChange={change}/>
                     <div className="my-3 text-center"><button className="btn btn-danger form-control" onClick={send}>Register</button></div>
