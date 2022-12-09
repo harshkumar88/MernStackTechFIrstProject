@@ -11,7 +11,7 @@ app.use(registerRouter)
 
 
 // app.use("/static",express.static(path.join(__dirname, "/public")))
-app.use(cors()); 
+
 app.use(express.static(path.join(__dirname+'/frontend/build')));
 app.use(bodyParser.json());
 
