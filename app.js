@@ -11,12 +11,17 @@ app.use(registerRouter)
 
 
 // app.use("/static",express.static(path.join(__dirname, "/public")))
-
+app.use(cors()); 
 app.use(express.static(path.join(__dirname+'/frontend/build')));
 app.use(bodyParser.json());
 
-app.get("/", function (req, res) {
-  res.render(path.join(__dirname+'/frontend/build'+'index.html'));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, 'frontend/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+ 
 })
 
 app.listen(port,()=>{
