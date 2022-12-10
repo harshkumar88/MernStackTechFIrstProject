@@ -10,7 +10,12 @@ require("./src/db/mongoose")
 app.use(registerRouter)
 
 
-  app.get("*", function (req, res) {
+  app.get("/", function (req, res) {
+    app.use(express.static(path.resolve(__dirname,'frontend','build')));
+    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+   
+  })
+  app.get("/*", function (req, res) {
     app.use(express.static(path.resolve(__dirname,'frontend','build')));
     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
    
