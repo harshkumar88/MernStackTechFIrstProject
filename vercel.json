@@ -3,11 +3,15 @@
         {
         "src":"./app.js",
         "use":"@vercel/node"
-        }
+        },
+        {
+            "src": "./frontend/build",
+            "use": "@vercel/static"
+          }
     ],
     "routes":[
         {
-            "src":"/.*",
+            "src":"/(.*)",
             "dest":"app.js"
         }
     ]
