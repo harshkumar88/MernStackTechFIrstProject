@@ -9,13 +9,13 @@ const bodyParser = require('body-parser');
 require("./src/db/mongoose")
 app.use(registerRouter)
 
-if(process.env.NODE_ENV=='Production'){
+
   app.get("/", function (req, res) {
     app.use(express.static(path.resolve(__dirname,'frontend','build')));
     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
    
   })
-}
+
 
 app.listen(port,()=>{
     console.log("you are on port ",port)
