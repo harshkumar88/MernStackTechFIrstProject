@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node app.js"
   },
+  "build:deploy": "cross-env NODE_ENV=production webpack",
   "author": "",
   "license": "ISC",
   "dependencies": {
