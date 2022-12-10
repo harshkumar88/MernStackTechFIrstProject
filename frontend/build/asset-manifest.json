@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb859354.css",
+    "main.js": "/static/js/main.723d3f45.js",
+    "static/js/787.d0fbee60.chunk.js": "/static/js/787.d0fbee60.chunk.js",
+    "static/media/2 Raflaan.mp3": "/static/media/2 Raflaan.9e8bdd73e5f19d1afd02.mp3",
+    "static/media/a.mp3": "/static/media/a.ad212074cf08a3c14d32.mp3",
+    "static/media/Eh Munde Pagal Ne Saare Mp3 Song_320(NewDjSongRemix) (1).mp3": "/static/media/Eh Munde Pagal Ne Saare Mp3 Song_320(NewDjSongRemix) (1).4a3348ad81c1c6259355.mp3",
+    "static/media/8 Raflaan - Mankirt Aulakh.mp3": "/static/media/8 Raflaan - Mankirt Aulakh.a9e734d26034bc2fd6e0.mp3",
+    "static/media/Begum - Mankirt Aulakh 128 Kbps.mp3": "/static/media/Begum - Mankirt Aulakh 128 Kbps.a543447e5156bfd19b6a.mp3",
+    "static/media/logo.jpg": "/static/media/logo.d163b29d3ddd13d4347f.jpg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.bb859354.css.map": "/static/css/main.bb859354.css.map",
+    "main.723d3f45.js.map": "/static/js/main.723d3f45.js.map",
+    "787.d0fbee60.chunk.js.map": "/static/js/787.d0fbee60.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb859354.css",
+    "static/js/main.723d3f45.js"
+  ]
+}
