@@ -9,13 +9,9 @@ const bodyParser = require('body-parser');
 require("./src/db/mongoose")
 app.use(registerRouter)
 
-
-// app.use("/static",express.static(path.join(__dirname, "/public")))
-app.use(cors()); 
 app.use(express.static(path.join(__dirname+'/frontend/build')));
-app.use(bodyParser.json());
 
-app.get("/*", function (req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, 'frontend/build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
