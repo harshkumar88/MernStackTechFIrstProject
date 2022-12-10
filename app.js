@@ -11,10 +11,10 @@ app.use(registerRouter)
 
 app.use(express.static(path.join(__dirname+'/frontend/build')));
 
-app.get("/", function (req, res) {
+app.get("/", (req, res)=> {
   // res.send("hiii")
-  res.sendFile(path.join(__dirname+'/frontend/build/index.html'))
- 
+  res.render(path.join(__dirname+'/frontend/build/index.html'))
+
 })
 
 app.listen(port,()=>{
