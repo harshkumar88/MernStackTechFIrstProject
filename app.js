@@ -9,11 +9,11 @@ const bodyParser = require('body-parser');
 require("./src/db/mongoose")
 app.use(registerRouter)
 
-app.use(express.static(path.join(__dirname+'/frontend/build')));
+app.use(express.static('./frontend/build'));
 
 app.get("/", (req, res)=> {
   // res.send("hiii")
-  res.render(path.join(__dirname+'/frontend/build/index.html'))
+  res.render('./frontend/build/index.html')
 
 })
 
